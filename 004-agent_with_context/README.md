@@ -1,4 +1,4 @@
-# AgentモードのPlanモードを使おう
+# Agentモードにコンテキストを与えよう
 
 ## このアプリは？
 
@@ -14,9 +14,4 @@ uv run python -m todo_api.server.api
 cd todo_frontend && pnpm start
 ```
 
-## 実行してみるプロンプト
-
-Planモードにする
-
-タスク一覧中の1つのタスクのカードは、今は"done"ボタンを押すと完了される。
-カードの中に"Start"ボタンを追加して、押すとタスクが"in progress"になるようにして。
+## 自動生成コンテキスト
