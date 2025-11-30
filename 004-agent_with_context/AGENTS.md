@@ -49,6 +49,6 @@
   - リント: `uv run ruff check .`
   - テスト: `uv run python -m unittest discover -p "*_test.py" -v`
 - フロントエンド
-  - リント: `cd todo_frontend && npm run lint --fix`
-  - フォーマットも `npm run list --fix` で行う
+  - リント: `cd todo_frontend && npm run lint`
+  - フォーマットも `npm run lint-fix` で行う
 - コード修正後は、フォマット、リント、テストを実行すること

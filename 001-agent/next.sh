@@ -1,2 +1,2 @@
 #!/bin/bash
-code -r ../006-agent_with_instruction/
+code -r ../002-agent_plan_mode

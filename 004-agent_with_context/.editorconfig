@@ -1,0 +1,7 @@
+[*.{j,t}s]
+indent_style = space
+indent_size = 2
+
+[*.{j,t}sx]
+indent_style = space
+indent_size = 2
