@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
-import { Task } from "../entity/task";
+
 import * as api from "../api/task";
+import { Task } from "../entity/task";
 
 interface Props {
     reloadTasks: () => Promise<void>;

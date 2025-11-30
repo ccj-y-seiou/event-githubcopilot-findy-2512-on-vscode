@@ -18,6 +18,7 @@ app = Flask(
     template_folder=webroot,
 )
 
+
 # index.html
 @app.route("/")
 def index():
@@ -34,7 +35,7 @@ def show_remained_tasks():
 # タスクを登録する
 # POST /api/tasks
 @app.route("/api/tasks", methods=["POST"])
-def append_task()-> Task:
+def append_task() -> Task:
     task = cast(Task, request.get_json())
     new_task = op.create_task(task)
     return new_task

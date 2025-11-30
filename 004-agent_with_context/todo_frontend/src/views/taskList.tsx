@@ -1,5 +1,5 @@
-import { Task } from "../entity/task";
 import * as api from "../api/task";
+import { Task } from "../entity/task";
 
 interface ListTaskViewProps {
     taskList: Task[];

@@ -4,8 +4,7 @@ from todo_api.domain.entity import Task
 
 
 class MemDB:
-    """ インメモリDB """
-
+    """インメモリDB"""
 
     def __init__(self):
         self._tasks: list[Task] = [
@@ -18,7 +17,7 @@ class MemDB:
                 "id": 1,
                 "text": "task2",
                 "status": "todo",
-            }
+            },
         ]
 
     def add(self, task: Task) -> int:
@@ -30,7 +29,7 @@ class MemDB:
     def search_unfinished(self) -> list[Task]:
         return [copy(task) for task in self._tasks if task["status"] == "todo"]
 
-    def update(self, task:Task):
+    def update(self, task: Task):
         assert task["id"] is not None
         self._tasks[task["id"]] = copy(task)
 

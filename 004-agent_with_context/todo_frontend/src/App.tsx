@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+
+import * as api from "./api/task";
+import { Task } from "./entity/task";
 import { NewTaskForm } from "./views/newTask";
 import { ListTaskView } from "./views/taskList";
-import { Task } from "./entity/task";
-import * as api from "./api/task";
 
 function App() {
     const [taskList, setTasks] = useState<Task[]>([]);
