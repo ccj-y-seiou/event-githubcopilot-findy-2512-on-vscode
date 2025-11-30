@@ -12,14 +12,15 @@
     - usecase/ : ユースケース実装
   - memdb/ : インメモリDB実装
   - server/ : Flaskサーバ実装
-    - api.py : API定義
 - todo_frontend/ : フロントエンドSPA
   - src/
     - api/ : FlaskAPI呼び出し
     - domain/ : ビジネスロジック層
       - entity/ : エンティティ定義
-    - view/
-      -
+    - App.tsx : ルートコンポーネント
+    - views/
+      - newTask.tsx : タスク追加画面
+      - taskList.tsx : タスク一覧画面
 
 ## プロジェクト構成のポリシー
 - エンティティ定義にはビジネスロジックは持たせない
@@ -27,6 +28,17 @@
 - ビジネスロジックはフロントエンドでは持たせず、バックエンドで実装する
   - フロントエンドではデータの絞り込みなどは行わず、バックエンドに任せる
 - HTTP ハンドラは極力薄く保ち、状態遷移やバリデーションは `OperationInteractor` に閉じ込めます。
+
+## 主要コンポーネント
+- メインの1つのタスクを示すデータクラス
+  - todo_api/domain/entity/task.py
+  - todo_frontend/src/domain/entity/task.ts
+- API
+  - todo_api/server/api.py
+  - todo_frontend/src/api/task.ts
+- 画面
+  - todo_frontend/src/views/newTask.tsx : タスク追加画面
+  - todo_frontend/src/views/taskList.tsx : タスクカードと一覧画面
 
 ## 開発ワークフロー
 - 開発サーバ起動
