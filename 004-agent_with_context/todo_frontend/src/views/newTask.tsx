@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 
-import * as api from "../api/task";
-import type { Task } from "../entity/tasks";
+import * as api from "../api/task.ts";
+import type { Task } from "../entity/tasks.ts";
 
 interface Props {
     reloadTasks: () => Promise<void>;
@@ -18,26 +18,22 @@ export const NewTaskForm = (props: Props) => {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="row">
-                <div className="col-md-4">
-                    <div className="my-3">
-                        <h4>Task Title</h4>
-                        <input
-                            {...register("text")}
-                            type="text"
-                            className="form-control"
-                            placeholder="task contents"
-                        />
-                    </div>
-                    <button
-                        className="btn btn-primary btn-lg btn-block"
-                        type="submit"
-                    >
-                        Add
-                    </button>
-                </div>
+        <form onSubmit={handleSubmit(onSubmit)} className="d-grid gap-3">
+            <div>
+                <label className="form-label text-uppercase fw-semibold small" htmlFor="taskText">
+                    Task Title
+                </label>
+                <input
+                    {...register("text", { required: true })}
+                    id="taskText"
+                    type="text"
+                    className="form-control form-control-lg"
+                    placeholder="たとえば「買い物リストを作成」"
+                />
             </div>
+            <button className="btn btn-primary btn-lg" type="submit">
+                Add
+            </button>
         </form>
     );
 };

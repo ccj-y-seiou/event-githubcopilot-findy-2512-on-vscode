@@ -1,4 +1,4 @@
-import type { Task } from "../entity/tasks";
+import type { Task } from "../entity/tasks.ts";
 
 export async function loadTasks(): Promise<Task[]> {
     const url = "/api/tasks";
