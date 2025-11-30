@@ -1,2 +1,2 @@
 #!/bin/bash
-code -r ../006-agent_with_instruction/
+code -r ../003-agent_playwright_mcp

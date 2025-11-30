@@ -8,11 +8,14 @@
             "args": [],
             "problemMatcher": [ ],
             "presentation": { },
-            "group": "none"
+            "group": "none",
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
         },
         {
             "label": "run react dev",
-            "command": ["npm", "start"],
+            "command": ["npm", "run", "dev"],
             "type": "shell",
             "args": [],
             "problemMatcher": [],
@@ -20,7 +23,10 @@
                 "cwd": "${workspaceFolder}/todo_frontend"
             },
             "presentation": { },
-            "group": "none"
+            "group": "none",
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
         }
     ]
 }
