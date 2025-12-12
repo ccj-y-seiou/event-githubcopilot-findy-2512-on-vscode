@@ -1,6 +1,7 @@
 import os
 from typing import cast
 from flask import Flask, render_template, request
+from flask_cors import CORS
 from todo_api.domain.entity.entity import Task
 from todo_api.domain.usecase import OperationInteractor
 
@@ -17,6 +18,9 @@ app = Flask(
     static_folder=webroot,
     template_folder=webroot,
 )
+
+# CORS設定を追加
+CORS(app)
 
 # index.html
 @app.route("/")
@@ -45,6 +49,14 @@ def append_task()-> Task:
 @app.route("/api/tasks/<int:task_id>/done", methods=["PATCH"])
 def done_task(task_id: int):
     task = op.done_task(task_id)
+    return task
+
+
+# タスクを開始する（進行中にする）
+# PATCH /api/tasks/<タスクのID>/start
+@app.route("/api/tasks/<int:task_id>/start", methods=["PATCH"])
+def start_task(task_id: int):
+    task = op.start_task(task_id)
     return task
 
 

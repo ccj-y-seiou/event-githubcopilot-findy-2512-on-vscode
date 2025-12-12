@@ -23,3 +23,14 @@ class OperationInteractor:
         self._db.update(task)
 
         return task
+
+    def start_task(self, task_id: int) -> Task:
+        """タスクを進行中ステータスに変更する"""
+        task = self._db.get(task_id)
+        if task is None:
+            raise Exception("Task not found")
+        
+        task["status"] = "in_progress"
+        self._db.update(task)
+        
+        return task

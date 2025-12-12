@@ -37,21 +37,56 @@ const TaskCard = (props: TaskCardProps) => {
     await props.reloadTasks()
   }
 
+  async function clickStart(): Promise<void> {
+    await api.postTaskStart(props.task)
+    await props.reloadTasks()
+  }
+
+  const getStatusBadge = (status?: string) => {
+    switch (status) {
+      case 'in_progress':
+        return <span className="badge text-bg-warning">進行中</span>
+      case 'done':
+        return <span className="badge text-bg-success">完了済み</span>
+      case 'todo':
+      default:
+        return <span className="badge text-bg-secondary">実施前</span>
+    }
+  }
+
+  const showStartButton = props.task.status === 'todo'
+  const showDoneButton = props.task.status === 'in_progress'
+
   return (
     <div className="card shadow-sm h-100">
       <div className="card-body d-flex flex-column gap-2">
-        <span className="badge text-bg-secondary align-self-start">
-          #
-          {props.task.id}
-        </span>
+        <div className="d-flex justify-content-between align-items-start">
+          <span className="badge text-bg-secondary">
+            #{props.task.id}
+          </span>
+          {getStatusBadge(props.task.status)}
+        </div>
         <p className="card-text flex-grow-1 mb-0">{props.task.text}</p>
-        <button
-          className="btn btn-outline-success mt-2"
-          onClick={clickDone}
-          type="button"
-        >
-          done
-        </button>
+        <div className="d-flex gap-2">
+          {showStartButton && (
+            <button
+              className="btn btn-outline-primary"
+              onClick={clickStart}
+              type="button"
+            >
+              start
+            </button>
+          )}
+          {showDoneButton && (
+            <button
+              className="btn btn-outline-success"
+              onClick={clickDone}
+              type="button"
+            >
+              done
+            </button>
+          )}
+        </div>
       </div>
     </div>
   )
